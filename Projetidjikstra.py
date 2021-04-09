@@ -8,13 +8,6 @@ class Grafo:
         self.grafo[u-1].append([v, peso])
 
 
-    def mostra_lista(self):
-        for i in range(self.vertices):
-            print(f'{i+1}:', end='  ')
-            for j in self.grafo[i]:
-                print(f'{j}  ->', end='  ')
-            print('')
-
 arquivo = open('roadNet-TX.txt','r')
 g = Grafo(1379917)
 for line in arquivo:
