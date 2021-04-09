@@ -17,11 +17,8 @@ class Grafo:
                 print(f'{j}  ->', end='  ')
             print('')
 
-g = Grafo(4)
-
-g.adiciona_aresta(1, 2, 5)
-g.adiciona_aresta(1, 3, 7)
-g.adiciona_aresta(1, 4, 6)
-g.adiciona_aresta(2, 3, 9)
-
-g.mostra_lista()
+arquivo = open('roadNet-TX.txt','r')
+g = Grafo(1379917)
+for line in arquivo:
+    line = line.split(" ")
+    print(line[0])
