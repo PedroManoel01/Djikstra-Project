@@ -36,7 +36,7 @@ for line in arquivo:
     g.adiciona_aresta(int(line[0]),int(line[1]),peso)
 
 origem = int(input("insira o vértice de origem:"))
-destino = int(input("insrira o vértice de destino:"))
+destino = int(input("insira o vértice de destino:"))
 g.djikstra(origem,destino)
 
 
