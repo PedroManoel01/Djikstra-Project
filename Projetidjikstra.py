@@ -24,13 +24,15 @@ class Grafo:
                      distancia[no_vizinho] = distancia[no_origem] + distancia_vizinho
                      distancia_no[no_vizinho] = distancia[no_vizinho]
         print("a distancia entre"+str(origem)+"e"+str(destino)+"eh"+str(distancia[destino]))
-def procurarOrigemeDestino(origem,destino,arquivo):
+
+def procurarOrigemEDestino(origem, destino, arquivo):
     for line in arquivo:
         line = line[:-1]
         line = line.split("\t")
-        if line[0] == origem or line[1] == origem:
+        if ((line[0] == origem or line[1] == origem) and (line[0] == destino or line[1] == destino)):
             return True
     return False
+
 arquivo = open('roadNet-TX.txt','r')
 g = Grafo(1393383)
 for line in arquivo:
@@ -44,10 +46,12 @@ for line in arquivo:
 
 origem = int(input("insira o vértice de origem:"))
 destino = int(input("insira o vértice de destino:"))
-resultado  = procurarOrigemeDestino(origem,destino,arquivo)
-if resultado == False:
-    print("Valor nao existe na base de dados")
-else:
+
+result = procurarOrigemEDestino(origem, destino, arquivo)
+
+if result == True:
+    print('Vértice de origem ou destino inválida.')
+else: 
     g.djikstra(origem,destino)
 
 
