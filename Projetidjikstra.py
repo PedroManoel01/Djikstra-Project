@@ -23,19 +23,21 @@ class Grafo:
                 if distancia[no_vizinho] > (distancia[no_origem] + distancia_vizinho):
                      distancia[no_vizinho] = distancia[no_origem] + distancia_vizinho
                      distancia_no[no_vizinho] = distancia[no_vizinho]
-        print("a distancia entre"+str(origem)+"e"+str(destino)+"eh"+str(distancia[destino]))
+        print("a distancia entre",str(origem),"e",str(destino),"eh",str(distancia[destino]))
 
 def procurarOrigem(origem, arquivo):
     for line in arquivo:
-       if line[0] == origem or line[1] == origem:
-        return True
-    return False
+        if line[0] == origem or line[1] == origem:
+            return True
+        else:
+            return False
 
 def procurarDestino(destino, arquivo):
     for line in arquivo:
-       if line[0] == destino or line[1] == destino:
-        return True
-    return False
+        if line[0] == destino or line[1] == destino:
+            return True
+        else:
+            return False
 
 arquivo = open('roadNet-TX.txt','r')
 g = Grafo(1393383)

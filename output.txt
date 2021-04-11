@@ -1,1 +1,1 @@
-insira o vértice de origem:insira o vértice de destino:Valor nao existe na base de dados
+insira o vértice de origem:insira o vértice de destino:
