@@ -25,9 +25,15 @@ class Grafo:
                      distancia_no[no_vizinho] = distancia[no_vizinho]
         print("a distancia entre"+str(origem)+"e"+str(destino)+"eh"+str(distancia[destino]))
 
-def procurarOrigemEDestino(origem, destino, arquivo):
+def procurarOrigem(origem, arquivo):
     for line in arquivo:
-       if ((line[0] == origem) or (line[1] == origem) and (line[0] == destino) or (line[1] == destino)):
+       if line[0] == origem or line[1] == origem:
+        return True
+    return False
+
+def procurarDestino(destino, arquivo):
+    for line in arquivo:
+       if line[0] == destino or line[1] == destino:
         return True
     return False
 
@@ -45,9 +51,10 @@ for line in arquivo:
 origem = int(input("insira o vértice de origem:"))
 destino = int(input("insira o vértice de destino:"))
 
-result = procurarOrigemEDestino(origem, destino, arquivo)
+resultOrigem = procurarOrigem(origem, arquivo)
+resultDestino = procurarDestino(destino, arquivo)
 
-if result == True:
+if resultOrigem == False or resultDestino == False:
     print('Vértice de origem ou destino inválida.')
 else: 
     g.djikstra(origem,destino)
